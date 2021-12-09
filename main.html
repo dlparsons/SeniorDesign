@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="style.css">
+            <script defer src="script.js"></script>
+            <title>Take-Back-Toe</title>
+        </head>
+        <body>
+            <p class="blackbox">
+                <span id="Title">ZURIAN: A Take-Back-Toe Remake</span>
+                <!-- Trigger/Open The Modal -->
+                <button id="myBtn">Instructions</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p>
+                        <b>Components:</b>
+                        </br>
+                            Take-Back-Toe is a two player board game played using a 3x4 grid, 40 tokens, and a six-sided die. 
+                        </br>
+                            The image on the left is a depiction of the boards initial setup, and the one on the right shows cells with their ID's<br>
+                            <img src="board.png" style="background-color:black; width:45%">
+                            <img src="boardCellID.png" style="background-color:black; width:45%">
+                        </br>
+                        <b>Rules:</b>
+                        </br>
+	                        Players take turns rolling the die. From the result of the die, the player must move that number of tokens from one cell to an orthogonally adjacent cell on the grid. There are a few stipulations that come with this:
+	                    <br>
+                            <i>No Short Moves:</i> You must move exactly the number of tokens as the number you rolled, and if that's impossible then your turn is skipped. 
+	                    <br>
+                            <i>No Take-Backs:</i> You cannot make a move that reverses your opponent's last move.
+	                    <br>
+                            <i>Winning:</i> To win, you must have three stacks of the same nonzero value anywhere within your row. 
+                        </br>
+                        <b>How to Play:</b>
+                        </br>
+	                        During a player's turn, indicated by “Player Turn” being lit up, click the blank die to roll your die. Legal cell moves will be highlighted in green. The player will click the desired cell to move tokens from and that cell will be highlighted in yellow, and all legal orthogonally adjacent cell movements will be highlighted in orange. To move the tokens, the player must click one of the legal orange moves. To deselect the first choice, the player can click the yellow cell, and all legal selections will be highlighted green once again.
+                        </p>
+                    </div>
+                </div>
+            </p>
+            <p class="player" id="player-1-turn-text">
+                Player 1's Turn
+            </p>
+            
+            <div class="grid-container">
+            <div class="grid-item">
+                <img src="dice.png" id="die" onclick="rollDice()">
+                </br>
+                <span id="lCol">Player 1: Click the Blank Die to Roll!</span>
+                </br>
+                <button id="restart" onclick="restartGame()">Restart</button>
+            </div>
+            <table id="myTable" class="grid-item">
+                <tr>
+                    <td id="a1">0</td> 
+                    <td id="a2">0</td> 
+                    <td id="a3">0</td> 
+                    <td id="a4">0</td>
+                </tr>
+                <tr>
+                    <td id="b1">10</td> 
+                    <td id="b2">10</td> 
+                    <td id="b3">10</td> 
+                    <td id="b4">10</td>
+                </tr>
+                <tr>
+                    <td id="c1">0</td> 
+                    <td id="c2">0</td> 
+                    <td id="c3">0</td> 
+                    <td id="c4">0</td>
+                </tr>
+            </table>    
+            <div class="grid-item">
+                <span id="rCol">Latest move will appear here</span>
+                <hr>
+                <span id="tips">Tips will appear here</span>
+                <hr>
+                <span>Quick Guide</span>
+                <div class="slideshow-container">
+
+                    <div class="mySlides fade">
+                      <div class="numbertext">1 / 3</div>
+                      <img src="slide1.png" style="width:100%">
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <div class="numbertext">2 / 3</div>
+                      <img src="slide2.png" style="width:100%">
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <div class="numbertext">3 / 3</div>
+                      <img src="slide3.png" style="width:100%">
+                    </div>
+                    
+                    </div>
+                    <br>
+                    
+                    <div style="text-align:center">
+                      <span class="dot" onclick="currentSlide(1)"></span> 
+                      <span class="dot" onclick="currentSlide(2)"></span> 
+                      <span class="dot" onclick="currentSlide(3)"></span> 
+                    </div>
+            </div>
+            </div>
+            <p class="player" id="player-2-turn-text">
+                Player 2's Turn
+            </p>
+
+            <p class="blackbox" style="text-align:center">
+                <span id="logger" style="display:none"></span>
+                </br>
+                <button onclick="showLog()" style="max-height: 60px;">Log</button>
+            </p>
+            
+        </body>
+    </html>
